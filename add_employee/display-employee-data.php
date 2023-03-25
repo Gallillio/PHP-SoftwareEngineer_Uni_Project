@@ -42,6 +42,19 @@
                 // checks if rows are more than 0 (is there any data inside table)
                 if($result -> num_rows > 0){
                     while($row = $result -> fetch_assoc()){
+                        // Switches the usertype numbering into its actual Name
+                        if($row["usertype"] == 0){
+                            $usertypeNamed = "Customer (Shouldn't be in this table)";
+                        }
+                        elseif($row["usertype"] == 1){
+                            $usertypeNamed = "Administrator";
+                        }
+                        elseif($row["usertype"] == 2){
+                            $usertypeNamed = "Worker";
+                        }
+                        else{
+                            $usertypeNamed = "Something went wrong";
+                        }
                         echo "
                         <tr>
                             <td>" . $row["ID"] . "</td>
@@ -50,7 +63,7 @@
                             <td>" . $row["password"] . "</td>
                             <td>" . $row["age"] . "</td>
                             <td>" . $row["gender"] . "</td>
-                            <td>" . $row["usertype"] . "</td>
+                            <td>" . $usertypeNamed . "</td>
                             <td> <a href='display-employee-data.php?ID=".$row["ID"] ."'> DELETE </a> </td>
                             <td> <a href='edit-employee-form.php?ID=".$row["ID"] ."'> Edit/Update </a> </td>
                         </tr>";

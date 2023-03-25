@@ -27,6 +27,7 @@
             <th>food name</th>
             <th>food price</th>
             <th>food category</th>
+            <th>image</th>
             <th>edit</th>
             <th>delete</th>
             
@@ -38,12 +39,29 @@
                 // checks if rows are more than 0 (is there any data inside table)
                 if($result -> num_rows > 0){
                     while($row = $result -> fetch_assoc()){
+                        // Switches the food Category numbering into its actual Name
+                        if($row["foodCategory"] == 1){
+                            $foodCategoryNamed = "Main Course";
+                        }
+                        elseif($row["foodCategory"] == 2){
+                            $foodCategoryNamed = "Dessert";
+                        }
+                        elseif($row["foodCategory"] == 3){
+                            $foodCategoryNamed = "Appetizer";
+                        }
+                        elseif($row["foodCategory"] == 4){
+                            $foodCategoryNamed = "Drink";
+                        }
+                        else{
+                            $foodCategoryNamed = "Something went wrong";
+                        }
                         echo "
                         <tr>
                             <td>" . $row["ID"] . "</td>
                             <td>" . $row["foodName"] . "</td>
                             <td>" . $row["foodPrice"] . "</td>
-                            <td>" . $row["foodCategory"] . "</td>
+                            <td>" . $foodCategoryNamed . "</td>
+                            <td> <img src='img/".$row['image'] ."' width='200'> </td>
                             <td> <a href='display-menu-data.php?ID=".$row["ID"] ."'> DELETE </a> </td>
                             <td> <a href='edit-menu-form.php?ID=".$row["ID"] ."'> Edit/Update </a> </td>
                         </tr>";
