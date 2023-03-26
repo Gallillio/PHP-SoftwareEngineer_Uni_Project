@@ -15,9 +15,8 @@
 <?php
     if(count($_POST) > 0){
         mysqli_query($conn, "UPDATE `foodmenu` SET `foodName`='". $_POST['foodName'] ."',`foodPrice`='". $_POST['foodPrice'] ."',`foodCategory`='". $_POST['foodCategory'] ."' WHERE ID='". $_GET['ID'] ."' ");
-        // mysqli_query($conn, "UPDATE `foodmenu` SET `foodCategory`='". $_POST['foodCategory'] ."',`foodPrice`='". $_POST['foodPrice'] ."',`foodName`='". $_POST['foodName'] ."' WHERE ID='". $_GET['ID'] ."' ");
         echo "<script> console.log('Menu Item Changed Successfully'); </script>";
-        $succuessMessage = "<p style='color:green'> Menu Item Changed Successfully. <a href='display-employee-data.php'>click here to go back</a></p>";
+        $succuessMessage = "<p style='color:green'> Menu Item Changed Successfully. <a href='display-menu-data.php'>click here to go back</a></p>";
     }
 
     $result = mysqli_query($conn, "SELECT * FROM `foodmenu` WHERE ID='". $_GET['ID'] ."'");

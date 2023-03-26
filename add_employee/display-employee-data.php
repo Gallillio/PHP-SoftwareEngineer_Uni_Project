@@ -30,12 +30,32 @@
             <th>password</th>
             <th>age</th>
             <th>gender</th>
+            <th>address</th>
+            <th>phone number</th>
             <th>usertype</th>
             <th>edit</th>
             <th>delete</th>
             
             <!-- adds the data -->
             <?php
+                // function will be used to display only the rows with the admin or worker usertype, and wont display client
+                function displayRow($row, $usertypeNamed){
+                    echo "
+                    <tr>
+                        <td>" . $row["ID"] . "</td>
+                        <td>" . $row["username"] . "</td>
+                        <td>" . $row["email"] . "</td>
+                        <td>" . $row["password"] . "</td>
+                        <td>" . $row["age"] . "</td>
+                        <td>" . $row["gender"] . "</td>
+                        <td>" . $row["address"] . "</td>
+                        <td>" . $row["phoneNumber"] . "</td>
+                        <td>" . $usertypeNamed . "</td>
+                        <td> <a href='display-employee-data.php?ID=".$row["ID"] ."'> DELETE </a> </td>
+                        <td> <a href='edit-employee-form.php?ID=".$row["ID"] ."'> Edit/Update </a> </td>
+                    </tr>";
+                }
+
                 $sql = "SELECT * FROM users";
                 $result = $conn -> query($sql);
 
@@ -48,25 +68,16 @@
                         }
                         elseif($row["usertype"] == 1){
                             $usertypeNamed = "Administrator";
+                            displayRow($row, $usertypeNamed);
                         }
                         elseif($row["usertype"] == 2){
                             $usertypeNamed = "Worker";
+                            displayRow($row, $usertypeNamed);
                         }
                         else{
                             $usertypeNamed = "Something went wrong";
+                            displayRow($row, $usertypeNamed);
                         }
-                        echo "
-                        <tr>
-                            <td>" . $row["ID"] . "</td>
-                            <td>" . $row["username"] . "</td>
-                            <td>" . $row["email"] . "</td>
-                            <td>" . $row["password"] . "</td>
-                            <td>" . $row["age"] . "</td>
-                            <td>" . $row["gender"] . "</td>
-                            <td>" . $usertypeNamed . "</td>
-                            <td> <a href='display-employee-data.php?ID=".$row["ID"] ."'> DELETE </a> </td>
-                            <td> <a href='edit-employee-form.php?ID=".$row["ID"] ."'> Edit/Update </a> </td>
-                        </tr>";
                     }
                 }
                 else{

@@ -14,9 +14,17 @@
 <!-- When user clicks on submit button, run this section -->
 <?php
     if(count($_POST) > 0){
-        mysqli_query($conn, "UPDATE `users` SET `username`='". $_POST['employeeUsername'] ."',`email`='". $_POST['employeeEmail'] ."', 
-        `password`='". $_POST['employeePassword'] ."',`age`='". $_POST['employeeAge'] ."',`gender`='". $_POST['employeeGender'] ."',`usertype`='". $_POST['userType'] ."'
-        WHERE ID='". $_GET['ID'] ."' ");
+        // mysqli_query($conn, "UPDATE `users` SET `username`='". $_POST['employeeUsername'] ."',`email`='". $_POST['employeeEmail'] ."', 
+        // `password`='". $_POST['employeePassword'] ."',`age`='". $_POST['employeeAge'] ."',`gender`='". $_POST['employeeGender'] ."',
+        // `usertype`='". $_POST['userType'] ."'
+        // WHERE ID='". $_GET['ID'] ."' ");
+        
+        mysqli_query($conn," UPDATE `users` SET `username`='". $_POST['employeeUsername'] ."', `email`='". $_POST['employeeEmail'] ."',
+        `password`='". $_POST['employeePassword'] ."',`age`='". $_POST['employeeAge'] ."', `gender`='". $_POST['employeeGender'] ."',
+        `address`='". $_POST['employeeAddress'] ."', `phoneNumber`='". $_POST['employeePhone'] ."'
+        WHERE ID='". $_GET['ID'] ."'"); 
+
+
         echo "<script> console.log('Record Changed Successfully'); </script>";
         $succuessMessage = "<p style='color:green'> Record Changed Successfully, <a href='display-employee-data.php'>click here to go back</a></p>";
     }
@@ -65,6 +73,12 @@
 
             Gender:<br>
             Male <input type="radio" name="employeeGender" value="m" required> Female <input type="radio" name="employeeGender" value="f" required><br><br>
+
+            Address:<br>
+            <input type="text" name="employeeAddress" value="<?php echo $row['address'] ?>" required><br><br>
+
+            Phone Number:<br>
+            <input type="number" name="employeePhone" value="<?php echo $row['phoneNumber'] ?>" required><br><br> 
 
             <input type="submit">
         </form>

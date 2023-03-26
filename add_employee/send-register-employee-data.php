@@ -17,13 +17,15 @@
     $employeePassword = $_POST["employeePassword"];
     $employeeAge = $_POST["employeeAge"];
     $employeeGender = $_POST["employeeGender"];
+    $employeeAddress = $_POST["employeeAddress"];
+    $employeePhone = $_POST["employeePhone"];
     $userType = $_POST["userType"];
 
     #sql to send data
-    $sendData = $conn->prepare("insert into users(username, email, password, age, gender, usertype)
-        values(?,?,?,?,?,?)");
-    #data types 
-    $sendData -> bind_param("sssisi", $employeeUsername, $employeeEmail, $employeePassword, $employeeAge, $employeeGender, $userType);
+    $sendData = $conn->prepare("insert into users(username, email, password, age, gender, address, phoneNumber, usertype)
+        values(?,?,?,?,?,?,?,?)");
+    #data types
+    $sendData -> bind_param("sssissii", $employeeUsername, $employeeEmail, $employeePassword, $employeeAge, $employeeGender, $employeeAddress, $employeePhone, $userType);
     $sendData -> execute();
     $sendData -> close();
 ?>

@@ -37,6 +37,12 @@
             Gender:<br>
             Male <input type="radio" name="employeeGender" value="m" required> Female <input type="radio" name="employeeGender" value="f" required><br><br>
 
+            Address:<br>
+            <input type="text" name="employeeAddress" required><br><br>
+
+            Phone Number:<br>
+            <input type="number" name="employeePhone" required><br><br>            
+
             <input type="submit" >
         </form>
         or <br><br>
