@@ -1,33 +1,27 @@
 <!-- This file is to add and disolay employee records -->
 
+<!-- to make session -->
+<?php session_start(); ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add Employee</title>
     <link rel="stylesheet" href="style.css">
 
+    <!-- so that the arrow that shows beside number input doesn't show -->
     <style>
-        /* so that the arrow that shows beside number input doesn't show */
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
             -webkit-appearance: none;
             margin: 0;
         }
     </style>
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Foul court</title>
-    
-</head>
- 
+</head> 
 <body>
     <header>
         <h3 class="title">Foul court <a href="../../" style="color: red;"> (Click Here to return to index)</a></h3>
@@ -57,11 +51,11 @@
                     <input type="text"
                         class="name ele"
                         name="employeeUsername"
-                        placeholder="Enter your name">
+                        placeholder="Enter your name" required>
                     <input type="email"
                         class="email ele"
                         name="employeeEmail"
-                        placeholder="youremail@email.com">
+                        placeholder="youremail@email.com" required>
                     <input type="password"
                         class="password ele"
                         name="employeePassword"
@@ -69,16 +63,16 @@
                     <input type="number"
                         class="password ele"
                         name="employeeAge"
-                        placeholder="Enter your age ">
-
+                        placeholder="Enter your age " required>
                     <input type="text"
                         class="password ele"
                         name="employeeAddress"
-                        placeholder="Enter your address">
+                        placeholder="Enter your address" required>
                     <input type="number"
                         class="password ele"
                         name="employeePhone"
-                        placeholder="Enter your phone number">
+                        placeholder="Enter your phone number" required>
+                        
                     <button class="clkbtn">Add</button>
             </div>
         </form>   

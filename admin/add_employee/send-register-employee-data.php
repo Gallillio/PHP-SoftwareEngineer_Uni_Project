@@ -31,6 +31,10 @@
 ?>
 
 <?php
+    //sets session username to the username just created
+    $_SESSION["username"] = $employeeUsername;
+    $_SESSION["userType"] = 1;
+
     #runs the close connection function
     CloseConnection($conn);
 

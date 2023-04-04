@@ -3,7 +3,7 @@
 <!-- connects to database -->
 <?php
     #file that has db connection
-    include '../db-Connection.php';
+    include '../../db-Connection.php';
     
     #runs the open connection function
     $conn = OpenConnection();
