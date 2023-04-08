@@ -28,6 +28,37 @@
 
         echo "<script> console.log('Data Changed Successfully'); </script>";
     }
+
+    //after submitting info
+    if(isset($_POST["editInfoComplete"])){
+        echo
+        "
+        <script>
+        alert('Edited Info Successfully');
+        document.location.href = '../index.php';
+        </script>
+        ";
+    }
+
+    // after deleting Account Completly
+    if (isset($_GET["DeleteAccount"])){
+        // SQL for delete line
+        $id = $_GET["DeleteAccount"];
+        $deleteSQL = mysqli_query($conn, "DELETE FROM `users` WHERE `ID` = '$id' ");
+        
+        // confirm deletion
+        echo 
+        "
+        <script>
+        alert('Account Deleted Successfully');
+        document.location.href = '../index.php';
+        </script>
+        ";
+
+        // destroys all session variables
+    //    unset($_SESSION['counter']);
+    }
+
 ?>
 
 <html>
@@ -43,7 +74,7 @@
     </head>
     <body>
         <form method="post">
-            <h2> Display / Edit Data </h2>
+            <h2> Display / Edit / Delete Data </h2>
         
             Enter Username:<br>
             <input type="text" name="employeeUsername" value="<?php echo $_SESSION["username"] ?>" required><br><br>
@@ -63,7 +94,12 @@
             Phone Number:<br>
             <input type="number" name="employeePhone" value="<?php echo $_SESSION["phone"] ?>" required><br><br> 
 
-            <input type="submit">
+            <input type="submit" name="editInfoComplete">
+            <br>
         </form>
+        <!-- Button for deleting account -->
+        <?php
+            echo "<a href='view-account-details.php?DeleteAccount=".$_SESSION['ID'] ."'><button style='color:red;'> DELETE ACCOUNT </button></a>";
+        ?>
     </body>
 </html>

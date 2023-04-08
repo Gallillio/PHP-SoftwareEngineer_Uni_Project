@@ -24,7 +24,7 @@
         <header>
             <h3> Login </h3>
         </header>
-        <form action="validateLogin.php" method="post">
+        <form action="validate-login.php" method="post">
             Enter your Email: <input type="email" name="inputtedEmail" required>
             <br>
             Enter your Password: <input type="password" name="inputtedPassword" required><br><br>

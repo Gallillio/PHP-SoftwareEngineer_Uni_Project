@@ -2,4 +2,6 @@
 <br><br>
 <a href="add_menu_item/add-menu-item-form.php"> Head to adding new Food Item</a>
 <br><br>
+<a href="view-all-reciepts.php"> View All Reciepts(Report)</a>
+<br><br>
 <a href="../login.php"> Head to Login Form</a>

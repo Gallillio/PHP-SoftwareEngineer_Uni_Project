@@ -15,7 +15,7 @@
     if (isset($_GET["ID"])){
         // SQL for delete line
         $id = $_GET["ID"];
-        $deleteSQL = mysqli_query($conn, "DELETE FROM `foodmenu` WHERE `ID` = '$id' ");
+        $deleteSQL = mysqli_query($conn, "DELETE FROM `menuitems` WHERE `ID` = '$id' ");
     }
 ?>
 
@@ -33,7 +33,7 @@
             
             <!-- adds the data -->
             <?php
-                $sql = "SELECT * FROM foodmenu";
+                $sql = "SELECT * FROM menuitems";
                 $result = $conn -> query($sql);
 
                 // checks if rows are more than 0 (is there any data inside table)

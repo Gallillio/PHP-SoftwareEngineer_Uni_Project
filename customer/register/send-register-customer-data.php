@@ -47,7 +47,7 @@
     //runs the close connection function
     CloseConnection($conn);
 
-    #returns to main page
-    header("Location: ../../");
+    #returns to page to get his id for to make session
+    header("Location: get-registered-id.php");
     die();
 ?>

@@ -14,12 +14,12 @@
 <!-- When user clicks on submit button, run this section -->
 <?php
     if(count($_POST) > 0){
-        mysqli_query($conn, "UPDATE `foodmenu` SET `foodName`='". $_POST['foodName'] ."',`foodPrice`='". $_POST['foodPrice'] ."',`foodCategory`='". $_POST['foodCategory'] ."' WHERE ID='". $_GET['ID'] ."' ");
+        mysqli_query($conn, "UPDATE `menuitems` SET `foodName`='". $_POST['foodName'] ."',`foodPrice`='". $_POST['foodPrice'] ."',`foodCategory`='". $_POST['foodCategory'] ."' WHERE ID='". $_GET['ID'] ."' ");
         echo "<script> console.log('Menu Item Changed Successfully'); </script>";
         $succuessMessage = "<p style='color:green'> Menu Item Changed Successfully. <a href='display-menu-data.php'>click here to go back</a></p>";
     }
 
-    $result = mysqli_query($conn, "SELECT * FROM `foodmenu` WHERE ID='". $_GET['ID'] ."'");
+    $result = mysqli_query($conn, "SELECT * FROM `menuitems` WHERE ID='". $_GET['ID'] ."'");
     $row = mysqli_fetch_array($result);
 ?>
 

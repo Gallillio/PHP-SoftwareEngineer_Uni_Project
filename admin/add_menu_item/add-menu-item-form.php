@@ -38,20 +38,12 @@
                 </script>
                 ";
             }
-            else if($fileSize > 1000000){
-                echo
-                "
-                <script>
-                alert('Image Size Is Too Large');
-                </script>
-                ";
-            }
             else{
                 $newImageName = uniqid();
                 $newImageName .= '.' . $imageExtension;
         
                 move_uploaded_file($tmpName, 'img/' . $newImageName);
-                $query = "INSERT INTO foodmenu VALUES('', '$foodName', '$foodPrice', '$foodCategory', '$newImageName')";
+                $query = "INSERT INTO menuitems VALUES('', '$foodName', '$foodPrice', '$foodCategory', '$newImageName')";
                 mysqli_query($conn, $query);
                 echo
                 "
