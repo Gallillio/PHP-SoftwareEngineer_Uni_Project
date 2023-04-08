@@ -53,8 +53,6 @@
 <h3>This is all the links el fel website for convenience purposes</h3>
 
 <a href="login.php"> Login Form</a>
-<br><br>
-<a href="view-menu.php"> View Menu</a>
 
 <h4><i>Admin Pages</i></h4>
 <a href="admin/add_employee/add-employee-form.php"> add Employee Record</a>
@@ -67,8 +65,20 @@
 <a href="customer/register/add-customer-form.php"> Customer Register</a>
 <br><br>
 <a href="customer/view-account-details.php">Customer View Account Details(and edit/delete it)</a>
-<br><br>
-<a href="order-food.php">Customer Order Food</a>
+
+<!-- show order food or order details depending on if the user has an order right now or not -->
+<?php
+    if(isset($_SESSION["orderID"])){
+        echo "<br><br>";
+        echo "<a href='order-details.php'>Order Details (and cancel) </a>";
+    }
+    else{
+        echo "<br><br>
+        After placing the food you can cancel it
+        <br>
+        <a href='order-food.php'>Customer Order Food</a>"; 
+    }
+?>
 
 <?php
     #runs the close connection function

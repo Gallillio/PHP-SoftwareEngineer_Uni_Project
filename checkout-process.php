@@ -56,13 +56,18 @@ foreach($_SESSION["cart"] as $key => $val){
     $orderItemsQuery = "INSERT INTO orderitems VALUES('', '$getOrderIDValue', $key, '$quantity')";
 
     mysqli_query($conn, $orderItemsQuery);
+
+    // get ID of order to make session with it so we can edit and cancel order later
+    $_SESSION["orderID"] = $getOrderIDValue;
 }
+
+
 
 // delete cart after being done
 unset($_SESSION['cart']);
 
 // head to order confirmed
-header("Location: order-confirmed.php");
+header("Location: order-details.php");
 
 
 ?>
